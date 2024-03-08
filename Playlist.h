@@ -22,9 +22,10 @@ public:
     void setDescripcion(string descripcion);
     int getDuracion() const;
     void calcularDuracion();
-    void getcancionesplay(); 
-    void agregarCancion(Cancion* cancion);
-    void eliminarCancion(Cancion* cancion);
+    void getcancionesplay();
+    Playlist* operator+(Cancion* cancion);
+    Playlist* operator-(Cancion* cancion);
+    Playlist* Operator>(Playlist* playlist);
     void fusionarPlaylist(Playlist* otraPlaylist);
     string toString() const;
 };

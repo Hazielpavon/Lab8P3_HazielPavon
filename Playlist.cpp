@@ -46,7 +46,7 @@ int Playlist::getDuracion() const
 
 void Playlist::calcularDuracion()
 {
-	/*duracion = 0;*/
+	duracion = 0;
 	for (const auto& cancion : canciones) {
 		duracion += cancion->getduracion(); 
 	}
@@ -62,21 +62,40 @@ void Playlist::getcancionesplay()
 	cout << endl; 
 }
 
-void Playlist::agregarCancion(Cancion* cancion)
+Playlist* Playlist::operator+(Cancion* cancion)
 {
 	canciones.push_back(cancion); 
 	calcularDuracion(); 
+	return this; 
 }
 
-void Playlist::eliminarCancion(Cancion* cancion)
-{
+Playlist* Playlist::operator-(Cancion* cancion){
+
+	string titulo = cancion->gettitulo(); 
+	int contador = 0; 
+	int indice = 0; 
+	while (contador > canciones.size()) {
+		if (titulo == canciones[contador]->gettitulo()) {
+			indice = contador; 
+			break; 
+		}
+	}
+
+	canciones.erase(canciones.begin() + indice);
+	calcularDuracion();
+	return this; 
 }
 
 void Playlist::fusionarPlaylist(Playlist* otraPlaylist)
 {
+
+
+
+
+
 }
 
 string Playlist::toString() const
 {
-	return "Nombre: " + nombre + "\nDescripcion: " + descripcion + "\nDuracion: " + to_string(duracion) + "\n";
+	return "Nombre: " + nombre + "\nDescripcion: " + descripcion + "\nDuracion: " + to_string(duracion) + "";
 }

@@ -58,15 +58,12 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 		}
 		case 3: {
 			int listaIndex, cancionIndex;
-			Playlist p;
 			cout << "Playlists disponibles y Canciones dentro de la playlist : " << endl;
-
 			for (int i = 0; i < playlist.size(); i++)
 			{
 				cout << playlist[i]->toString();
+				playlist[i]->getcancionesplay(); 
 			}
-			p.getcancionesplay();
-
 			cout << "Ingrese el numero de la playlist a la que desea agregar la cancion: ";
 			cin >> listaIndex;
 			cout << "Canciones disponibles:\n";
@@ -77,7 +74,7 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			cout << "Ingrese el numero de la cancion que desea agregar: ";
 			cin >> cancionIndex;
 			if (listaIndex > 0 && listaIndex <= playlist.size() && cancionIndex > 0 && cancionIndex <= canciones.size())  {
-				playlist[listaIndex - 1]->agregarCancion(canciones[cancionIndex - 1]);
+				*playlist[listaIndex - 1] + canciones[cancionIndex - 1];
 				cout << "Cancion agregada a la playlist correctamente.\n";
 			}
 			else {
@@ -86,10 +83,32 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			break;
 		}
 		case 4: {
-
+			int listaIndex, cancionIndex;
+			cout << "Playlists disponibles y Canciones dentro de la playlist : " << endl;
+			for (int i = 0; i < playlist.size(); i++)
+			{
+				cout << playlist[i]->toString();
+				playlist[i]->getcancionesplay();
+			}
+			cout << "Ingrese el numero de la playlist a la que desea eliminar la cancion: ";
+			cin >> listaIndex;
+			cout << "Canciones Dentro de la playlist:\n";
+			playlist[listaIndex - 1]->getcancionesplay();
+			cout << "Ingrese el numero de la cancion que desea eliminar: ";
+			cin >> cancionIndex;
+			if (listaIndex > 0 && listaIndex <= playlist.size() && cancionIndex > 0 && cancionIndex <= canciones.size()) {
+				*playlist[listaIndex - 1] - canciones[cancionIndex - 1];
+				cout << "Cancion agregada a la playlist correctamente.\n";
+			}
+			else {
+				cout << "Indices incorrectos.\n";
+			}
 			break;
 		}
 		case 5: {
+
+
+
 
 			break;
 		}
