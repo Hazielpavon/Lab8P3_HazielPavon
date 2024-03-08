@@ -13,7 +13,7 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 		cout << "2. Crear Playlist" << endl;
 		cout << "3. Agregar Cancion a Playlist" << endl;
 		cout << "4. Eliminar Cancion de Playlist" << endl;
-		cout << "5. Fusionar Playslit" << endl;
+		cout << "5. Fusionar Playlist" << endl;
 		cout << "6. Comparar Duracion de Playlist" << endl;
 		cout << "7. Salir" << endl;
 		cout << "Ingrese una opcion: ";
@@ -67,7 +67,7 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			}
 			p.getcancionesplay();
 
-			cout << "Ingrese el numero de la playlist a la que desea agregar la cancian: ";
+			cout << "Ingrese el numero de la playlist a la que desea agregar la cancion: ";
 			cin >> listaIndex;
 			cout << "Canciones disponibles:\n";
 			for (int i = 0; i < canciones.size(); i++)
@@ -78,7 +78,7 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			cin >> cancionIndex;
 			if (listaIndex > 0 && listaIndex <= playlist.size() && cancionIndex > 0 && cancionIndex <= canciones.size())  {
 				playlist[listaIndex - 1]->agregarCancion(canciones[cancionIndex - 1]);
-				cout << "Canción agregada a la playlist correctamente.\n";
+				cout << "Cancion agregada a la playlist correctamente.\n";
 			}
 			else {
 				cout << "Indices incorrectos.\n";
@@ -115,61 +115,3 @@ int main()
 	vector<Playlist*> playlist;
 	ejercicio1(canciones, playlist);
 }
-//int opcion;
-//do {
-//	cout << "\nMenú:\n";
-//	cout << "1. Agregar canciones\n";
-//	cout << "2. Agregar Playlist\n";
-//	cout << "3. Agregar canciones a Playlist\n";
-//	cout << "4. Eliminar canciones de Playlist\n";
-//	cout << "5. Fusionar Playlist\n";
-//	cout << "6. Comparar duraciones de Playlist\n";
-//	cout << "7. Salir\n";
-//	cout << "Ingrese su opción: ";
-//	cin >> opcion;
-//
-//	switch (opcion) {
-//	case 1: {
-//		string titulo, artista, genero;
-//		int duracion, anoLanzamiento;
-//		cout << "Ingrese el título de la canción: ";
-//		cin >> titulo;
-//		cout << "Ingrese el artista de la canción: ";
-//		cin >> artista;
-//		cout << "Ingrese la duración de la canción en segundos: ";
-//		cin >> duracion;
-//		cout << "Ingrese el género de la canción: ";
-//		cin >> genero;
-//		cout << "Ingrese el año de lanzamiento de la canción: ";
-//		cin >> anoLanzamiento;
-//		c
-//		cout << "Canción agregada correctamente.\n";
-//		break;
-//	}
-//	case 2: {
-//		string nombre, descripcion;
-//		cout << "Ingrese el nombre de la playlist: ";
-//		cin >> nombre;
-//		cout << "Ingrese la descripción de la playlist: ";
-//		cin >> descripcion;
-//		listas.push_back(new Playlist(nombre, descripcion));
-//		cout << "Playlist agregada correctamente.\n";
-//		break;
-//	}
-//	case 3: {
-//		mostrarListas(listas);
-//		int listaIndex, cancionIndex;
-//		cout << "Ingrese el número de la playlist a la que desea agregar la canción: ";
-//		cin >> listaIndex;
-//		cout << "Canciones disponibles:\n";
-//		mostrarCanciones(canciones);
-//		cout << "Ingrese el número de la canción que desea agregar: ";
-//		cin >> cancionIndex;
-//		if (listaIndex > 0 && listaIndex <= listas.size() && cancionIndex > 0 && cancionIndex <= canciones.size()) {
-//			listas[listaIndex - 1]->agregarCancion(canciones[cancionIndex - 1]);
-//			cout << "Canción agregada a la playlist correctamente.\n";
-//		}
-//		else {
-//			cout << "Índices incorrectos.\n";
-//		}
-//		break;
