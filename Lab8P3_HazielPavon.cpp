@@ -106,16 +106,62 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			break;
 		}
 		case 5: {
+			cout << "Playlists disponibles para fusionar:" << endl;
+			for (int i = 0; i < playlist.size(); i++) {
+				cout << i + 1 << ". " << playlist[i]->toString();
+			}
 
+			int indicePlaylist1, indicePlaylist2;
+			cout << "Ingrese el numero de la primera playlist: ";
+			cin >> indicePlaylist1;
+			cout << "Ingrese el numero de la segunda playlist: ";
+			cin >> indicePlaylist2;
 
-
-
+			if (indicePlaylist1 > 0 && indicePlaylist1 <= playlist.size() &&
+				indicePlaylist2 > 0 && indicePlaylist2 <= playlist.size()) {
+				Playlist* fusionada = *playlist[indicePlaylist1 - 1] + playlist[indicePlaylist2 - 1];
+				if (fusionada != nullptr) {
+					cout << "Playlist fusionada creada correctamente." << endl;
+					playlist.push_back(fusionada);
+				}
+				else {
+					cout << "Error al fusionar las playlists." << endl;
+				}
+			}
+			else {
+				cout << "Indices incorrectos." << endl;
+			}
 			break;
 		}
+
 		case 6: {
+			cout << "Playlists disponibles para comparar duración:" << endl;
+			for (int i = 0; i < playlist.size(); ++i) {
+				cout << i + 1 << ". " << playlist[i]->getNombre() << endl;
+			}
 
+			int indicePlaylist1, indicePlaylist2;
+			cout << "Ingrese el numero de la primera playlist: ";
+			cin >> indicePlaylist1;
+			cout << "Ingrese el numero de la segunda playlist: ";
+			cin >> indicePlaylist2;
+
+			if (indicePlaylist1 > 0 && indicePlaylist1 <= playlist.size() &&
+				indicePlaylist2 > 0 && indicePlaylist2 <= playlist.size()) {
+				if (*playlist[indicePlaylist1 - 1] > playlist[indicePlaylist2 - 1]) {
+					cout << "La primera playlist tiene una duración mayor." << endl;
+				}
+				else {
+					cout << "La segunda playlist tiene una duración mayor." << endl;
+				}
+			}
+			else {
+				cout << "Indices incorrectos." << endl;
+			}
 			break;
 		}
+
+
 		case 7: {
 			cout << "Saliendo..." << endl;
 			seguir = false;

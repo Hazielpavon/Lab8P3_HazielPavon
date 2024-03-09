@@ -25,8 +25,8 @@ public:
     void getcancionesplay();
     Playlist* operator+(Cancion* cancion);
     Playlist* operator-(Cancion* cancion);
-    Playlist* Operator>(Playlist* playlist);
-    void fusionarPlaylist(Playlist* otraPlaylist);
+    Playlist* operator+(Playlist* otraPlaylist);
+    bool operator>(Playlist* playlist); 
     string toString() const;
 };
 
