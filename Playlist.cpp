@@ -94,6 +94,7 @@ Playlist* Playlist::operator+(Playlist* otraPlaylist) {
 	for (auto cancion : otraPlaylist->canciones) {
 		nuevaPlaylist->canciones.push_back(cancion); 
 	}
+
 	nuevaPlaylist->calcularDuracion();
 	return nuevaPlaylist;
 }

@@ -123,6 +123,11 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 				if (fusionada != nullptr) {
 					cout << "Playlist fusionada creada correctamente." << endl;
 					playlist.push_back(fusionada);
+
+					playlist.erase(playlist.begin() + indicePlaylist1 - 1);
+					playlist.erase(playlist.begin() + indicePlaylist2 - 1);
+
+
 				}
 				else {
 					cout << "Error al fusionar las playlists." << endl;
@@ -135,7 +140,7 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 		}
 
 		case 6: {
-			cout << "Playlists disponibles para comparar duración:" << endl;
+			cout << "Playlists disponibles para comparar duracion:" << endl;
 			for (int i = 0; i < playlist.size(); ++i) {
 				cout << i + 1 << ". " << playlist[i]->getNombre() << endl;
 			}
@@ -149,10 +154,10 @@ void ejercicio1(vector<Cancion*>& canciones, vector<Playlist*>& playlist) {
 			if (indicePlaylist1 > 0 && indicePlaylist1 <= playlist.size() &&
 				indicePlaylist2 > 0 && indicePlaylist2 <= playlist.size()) {
 				if (*playlist[indicePlaylist1 - 1] > playlist[indicePlaylist2 - 1]) {
-					cout << "La primera playlist tiene una duración mayor." << endl;
+					cout << "La primera playlist tiene una duracion mayor." << endl;
 				}
 				else {
-					cout << "La segunda playlist tiene una duración mayor." << endl;
+					cout << "La segunda playlist tiene una duracion mayor." << endl;
 				}
 			}
 			else {
@@ -179,4 +184,11 @@ int main()
 	vector<Cancion*> canciones;
 	vector<Playlist*> playlist;
 	ejercicio1(canciones, playlist);
+	for (auto cancion : canciones) {
+		delete cancion;
+	}
+	for (auto pl : playlist) {
+		delete pl;
+	}
 }
+// tenia codigo aca que fue el que hice al inicio despues lo borre porque lo quise reestructurar 
